@@ -1,0 +1,19 @@
+{% load custom_tags %}
+
+<div class="my-3">
+{% if page_obj.has_previous %}
+    <a class="btn rounded-pill fw-bold fs-5" href="?{% url_replace page=page_obj.previous_page_number %}" style="background-color: #0DF9A3;">&lt</a>
+    <a class="btn rounded-pill fw-bold fs-5" href="?{% url_replace page=1 %}" style="background-color: #0DF9A3;">1</a>
+    {% if page_obj.previous_page_number != 1 %}
+        ... <a class="btn rounded-pill fw-bold fs-5" href="?{% url_replace page=page_obj.previous_page_number %}" style="background-color: #0DF9A3;">{{ page_obj.previous_page_number }}</a>
+    {% endif %}
+{% endif %}
+    <button class="btn rounded-pill fw-bold fs-5" disabled style="background-color: #081435;">{{ page_obj.number }}</button>
+{% if page_obj.has_next %}
+    <a class="btn rounded-pill fw-bold fs-5" href="?{% url_replace page=page_obj.next_page_number %}" style="background-color: #0DF9A3;">{{ page_obj.next_page_number }}</a>
+    {% if page_obj.next_page_number != page_obj.paginator.num_pages %}
+        ... <a class="btn rounded-pill fw-bold fs-5" href="?{% url_replace page=page_obj.paginator.num_pages %}" style="background-color: #0DF9A3;">{{ page_obj.paginator.num_pages }}</a>
+    {% endif %}
+    <a class="btn rounded-pill fw-bold fs-5" href="?{% url_replace page=page_obj.next_page_number %}" style="background-color: #0DF9A3;">&gt</a>
+{% endif %}
+</div>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{% blocktranslate with title=advert.title %}Delete {{ title }}?{% endblocktranslate %}
+{% endblock %}
+
+{% block content %}
+<h1 class="my-3">{% translate 'Delete an advert?' %}</h1>
+<hr class="border opacity-100">
+<h4 class="mt-3">{% blocktranslate with title=advert.title %}Are you sure you want to delete {{ title }}?{% endblocktranslate %}</h4>
+<p style="text-align: justify"> {{ advert.text|safe|truncatewords:50 }} </p>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn my-3 fw-medium fs-5" value="{% translate 'Delete' %}" style="background-color: #0DF9A3;">
+</form>
+{% endblock %}

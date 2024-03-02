@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{% translate 'Add response' %}
+{% endblock %}
+
+{% block content %}
+<h1 class="mt-3">{% translate 'Add response' %}</h1>
+<hr class="border border-1 opacity-100">
+<form action="" method="post">
+    {% csrf_token %}
+    {% for f in form %}
+        <label for="{{ f.id_for_label }}" class="mx-auto col-form-label fw-bold text-end fs-5">{{ f.label }}</label>
+        <div>
+            {{ f }}
+        </div>
+    <div class="row fw-bold text-bg-dark fs-5">
+        <ul class="list-group list-group-flush pe-0 w-75 mx-auto">
+        {% for error in f.errors %}
+            <li class="list-group-item text-start text-danger text-bg-dark small border-0">{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <input class="btn fw-medium my-3 fs-5" type="submit" value="{% translate 'Respond' context 'respond to an ad'%}" style="background-color: #0DF9A3;">
+    <div class="w-50 mx-auto fw-bold fs-5">{% for error in form.non_field_errors %}
+        <ul class="list-group">
+            <li class="list-group-item text-danger text-bg-dark">{{ error }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</form>
+{% endblock %}

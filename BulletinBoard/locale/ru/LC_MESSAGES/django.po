@@ -1,0 +1,426 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-02 20:12+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\accounts\forms.py:12 .\accounts\forms.py:49
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\accounts\forms.py:18
+msgid "Email address"
+msgstr "Адрес эл. почты"
+
+#: .\accounts\forms.py:21 .\accounts\forms.py:51
+msgid "Email"
+msgstr "Email"
+
+#: .\accounts\forms.py:24 .\accounts\forms.py:43
+msgid "Password"
+msgstr "Пароль"
+
+#: .\accounts\forms.py:28
+msgid "Repeat password"
+msgstr "Повторите пароль"
+
+#: .\accounts\forms.py:37
+msgid "Username or email"
+msgstr "Имя пользователя или адрес эл. почты"
+
+#: .\accounts\forms.py:40
+msgctxt "noun"
+msgid "Login"
+msgstr "Логин"
+
+#: .\accounts\forms.py:58
+msgid "First name"
+msgstr "Имя"
+
+#: .\accounts\forms.py:59
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\accounts\templates\account\login.html:6
+#: .\accounts\templates\account\login.html:9
+#: .\accounts\templates\account\login.html:39 .\templates\base.html:85
+msgid "Log in"
+msgstr "Войти"
+
+#: .\accounts\templates\account\login.html:41
+msgid "Do not have an account yet? Then please "
+msgstr "Еще нет аккаунта? Тогда, пожалуйста, "
+
+#: .\accounts\templates\account\login.html:41
+msgid "sign up"
+msgstr "зарегистрируйтесь"
+
+#: .\accounts\templates\account\logout.html:6
+#: .\accounts\templates\account\logout.html:12 .\templates\base.html:83
+msgid "Log out"
+msgstr "Выйти"
+
+#: .\accounts\templates\account\logout.html:9
+msgid "Are you sure you want to log out"
+msgstr "Вы действительно хотите выйти?"
+
+#: .\accounts\templates\account\signup.html:6
+#: .\accounts\templates\account\signup.html:9 .\templates\base.html:78
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\accounts\templates\account\signup.html:28
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: .\accounts\templates\account\signup.html:30
+msgid "Already have an account? Then please "
+msgstr "Уже есть аккаунт? Тогда, пожалуйста, "
+
+#: .\accounts\templates\account\signup.html:30
+msgid "log in"
+msgstr "войдите"
+
+#: .\accounts\templates\account\verification_sent.html:5
+#: .\accounts\templates\account\verification_sent.html:9
+msgid "Verify Your Email Address"
+msgstr "Подтвердите ваш адрес эл. почты"
+
+#: .\accounts\templates\account\verification_sent.html:13
+msgid ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
+msgstr ""
+"Мы отправили вам письмо с подтверждением. Перейдите по предоставленной "
+"ссылке для завершения процесса регистрации. Если вы не видите письмо с "
+"подтверждением во входящих сообщениях, проверьте спам. Пожалуйста, свяжитесь "
+"с нами, если вы не получили письмо с подтверждением в течение нескольких "
+"минут."
+
+#: .\accounts\templates\accounts\profile.html:6 .\templates\base.html:72
+msgid "Profile"
+msgstr "Профиль"
+
+#: .\accounts\templates\accounts\profile.html:10
+msgid "Your profile"
+msgstr "Ваш профиль"
+
+#: .\accounts\templates\accounts\profile.html:29
+#: .\board\templates\board\advert_edit.html:29
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: .\accounts\templates\accounts\profile.html:32
+#: .\board\templates\board\subscriptions.html:6
+#: .\board\templates\board\subscriptions.html:10
+msgid "Your subscriptions"
+msgstr "Ваши подписки"
+
+#: .\accounts\templates\accounts\profile.html:43
+msgid "You are not subscribed to any category"
+msgstr "Вы не подписаны ни на одну категорию"
+
+#: .\accounts\templates\accounts\profile.html:45
+msgid "Manage subscriptions"
+msgstr "Управление подписками"
+
+#: .\board\filters.py:12
+msgid "Advert title contains"
+msgstr "Заголовок объявления содержит"
+
+#: .\board\filters.py:17 .\board\filters.py:44 .\board\forms.py:19
+#: .\board\models.py:57 .\board\templates\board\advert.html:15
+#: .\board\templates\board\adverts.html:46
+msgid "Category"
+msgstr "Категория"
+
+#: .\board\filters.py:24 .\board\filters.py:51
+msgid "Published later than"
+msgstr "Опубликвано позже, чем"
+
+#: .\board\filters.py:28
+msgctxt "response is accepted"
+msgid "Accepted"
+msgstr "Принято"
+
+#: .\board\filters.py:39
+msgid "Title contains"
+msgstr "Заголовок содержит"
+
+#: .\board\forms.py:11
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\board\forms.py:16
+msgctxt "content of the advertisement"
+msgid "Content"
+msgstr "Содержание"
+
+#: .\board\forms.py:41
+msgctxt "content of the response"
+msgid "Content"
+msgstr "Содержание"
+
+#: .\board\models.py:14 .\board\models.py:56
+#, fuzzy
+#| msgctxt "content of the advertisement"
+#| msgid "Content"
+msgid "Content"
+msgstr "Содержание"
+
+#: .\board\models.py:15 .\board\models.py:59
+#, fuzzy
+#| msgid "Published later than"
+msgid "Published at"
+msgstr "Опубликвано"
+
+#: .\board\models.py:16
+#, fuzzy
+#| msgctxt "response is accepted"
+#| msgid "Accepted"
+msgid "Accepted"
+msgstr "Принято"
+
+#: .\board\models.py:17
+msgid "Advertisement"
+msgstr "Объявление"
+
+#: .\board\models.py:18 .\board\models.py:58
+#: .\board\templates\board\advert.html:23
+#: .\board\templates\board\adverts.html:56
+msgid "Author"
+msgstr "Автор"
+
+#: .\board\models.py:43
+msgid "Choose Category"
+msgstr "Выберите категорию"
+
+#: .\board\models.py:44
+msgid "Tanks"
+msgstr "Танки"
+
+#: .\board\models.py:45
+msgid "Healers"
+msgstr "Хилы"
+
+#: .\board\models.py:46
+msgid "Damage Dealers"
+msgstr "ДД"
+
+#: .\board\models.py:47
+msgid "Merchants"
+msgstr "Торговцы"
+
+#: .\board\models.py:48
+msgid "Guild Masters"
+msgstr "Гилдмастеры"
+
+#: .\board\models.py:49
+msgid "Quest Givers"
+msgstr "Квестгиверы"
+
+#: .\board\models.py:50
+msgid "Blacksmiths"
+msgstr "Кузнецы"
+
+#: .\board\models.py:51
+msgid "Tanners"
+msgstr "Кожевники"
+
+#: .\board\models.py:52
+msgid "Potion Makers"
+msgstr "Зельевары"
+
+#: .\board\models.py:53
+msgid "Spell Masters"
+msgstr "Мастера заклинаний"
+
+#: .\board\models.py:55
+msgid "Heading"
+msgstr "Заголовок"
+
+#: .\board\templates\board\advert.html:24
+#: .\board\templates\board\adverts.html:57
+#, python-format
+msgid "Responses: %(count)s"
+msgstr "Откликов: %(count)s"
+
+#: .\board\templates\board\advert.html:28
+#: .\board\templates\board\adverts.html:62
+msgid "Respond"
+msgstr "Откликнуться"
+
+#: .\board\templates\board\advert.html:32
+msgid "Actions"
+msgstr "Действия"
+
+#: .\board\templates\board\advert.html:36
+#: .\board\templates\board\adverts.html:70
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\board\templates\board\advert.html:39
+#: .\board\templates\board\advert_delete.html:16
+#: .\board\templates\board\adverts.html:75
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\board\templates\board\advert_create.html:6
+#: .\board\templates\board\advert_create.html:14
+msgid "Add advertisement"
+msgstr "Добавить объявление"
+
+#: .\board\templates\board\advert_create.html:33
+msgid "Publish"
+msgstr "Опубликовать"
+
+#: .\board\templates\board\advert_delete.html:6
+#, python-format
+msgid "Delete %(title)s?"
+msgstr "Удалить %(title)s?"
+
+#: .\board\templates\board\advert_delete.html:10
+msgid "Delete an advert?"
+msgstr "Удалить объявление?"
+
+#: .\board\templates\board\advert_delete.html:12
+#, python-format
+msgid "Are you sure you want to delete %(title)s?"
+msgstr "Вы действительно хотите удалить %(title)s?"
+
+#: .\board\templates\board\advert_edit.html:10
+msgid "Advertisement editing"
+msgstr "Редактирование объявления"
+
+#: .\board\templates\board\adverts.html:7
+msgid "Advertisements"
+msgstr "Объявления"
+
+#: .\board\templates\board\adverts.html:12
+#: .\board\templates\board\responses.html:11
+msgid "Filters"
+msgstr "Фильтры"
+
+#: .\board\templates\board\adverts.html:32
+#: .\board\templates\board\responses.html:42
+msgid "Apply filters"
+msgstr "Применить фильтры"
+
+#: .\board\templates\board\adverts.html:33
+#: .\board\templates\board\responses.html:43
+msgid "Clear filters"
+msgstr "Очистить фильтры"
+
+#: .\board\templates\board\adverts.html:36
+msgid "Advertisements list"
+msgstr "Список объявлений"
+
+#: .\board\templates\board\adverts.html:83
+msgid "No advertisements yet!"
+msgstr "Пока нет объявлений!"
+
+#: .\board\templates\board\response_create.html:6
+#: .\board\templates\board\response_create.html:10
+msgid "Add response"
+msgstr "Добавить отклик"
+
+#: .\board\templates\board\response_create.html:27
+msgctxt "respond to an ad"
+msgid "Respond"
+msgstr "Откликнуться"
+
+#: .\board\templates\board\responses.html:6 .\templates\base.html:74
+msgid "Responses"
+msgstr "Отклики"
+
+#: .\board\templates\board\responses.html:46
+msgid "Responses to your advertisements"
+msgstr "Отклики на ваши объявления"
+
+#: .\board\templates\board\responses.html:52
+msgctxt "response to an ad"
+msgid "Response to"
+msgstr "Отклик на"
+
+#: .\board\templates\board\responses.html:62
+#: .\board\templates\board\responses.html:65
+msgid "Accept"
+msgstr "Принять"
+
+#: .\board\templates\board\responses.html:63
+#: .\board\templates\board\responses.html:66
+msgid "Reject"
+msgstr "Отклонить"
+
+#: .\board\templates\board\responses.html:73
+msgid "There are no responses to your ads yet"
+msgstr "На ваши объявления пока нет откликов"
+
+#: .\board\templates\board\subscriptions.html:22
+#: .\board\templates\board\subscriptions.html:25
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: .\board\templates\board\subscriptions.html:23
+#: .\board\templates\board\subscriptions.html:26
+msgid "Unsubscribe"
+msgstr "Отписаться"
+
+#: .\board\templates\board\subscriptions.html:37
+msgid "Subscribe to all"
+msgstr "Подписаться на все"
+
+#: .\board\templates\board\subscriptions.html:38
+msgid "Unsubscribe from all"
+msgstr "Отписаться от всех"
+
+#: .\board\views.py:106
+msgid "You cannot respond to your own advertisements"
+msgstr "Вы не можете откликаться на собственные объявления"
+
+#: .\templates\base.html:37
+msgctxt "homepage"
+msgid "Home"
+msgstr "Главная"
+
+#: .\templates\base.html:40
+msgid "Add an advert"
+msgstr "Добавить объявление"
+
+#: .\templates\base.html:43
+msgid "Subscriptions"
+msgstr "Подписки"
+
+#: .\templates\base.html:62
+msgid "Apply"
+msgstr "Применить"
+
+#: .\templates\base.html:73
+msgid "My adverts"
+msgstr "Мои объявления"
+
+#, python-format
+#~ msgid "Responses:%(count)s"
+#~ msgstr "Откликов: %(count)s"
+
+#~ msgctxt "action: to filter smth"
+#~ msgid "Filter"
+#~ msgstr "Применить фильтры"

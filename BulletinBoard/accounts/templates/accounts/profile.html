@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{% translate 'Profile' %}
+{% endblock %}
+
+{% block content %}
+<h1 class="my-3">{% translate 'Your profile' %}</h1>
+<hr class="border opacity-100">
+<form action="" method="post">
+    {% csrf_token %}
+    {% for f in form %}
+    <div class="row justify-content-center">
+        <label for="{{ f.id_for_label }}" class="col-sm-2 my-auto col-form-label fw-bold text-end fs-5">{{ f.label }}</label>
+        <div class="col-sm-4">
+            {{ f }}
+        </div>
+    </div>
+    <div class="row fw-bold text-bg-dark fs-5">
+        <ul class="list-group list-group-flush pe-0 w-75 mx-auto">
+        {% for error in f.errors %}
+            <li class="list-group-item text-start text-danger text-bg-dark small border-0">{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <input class="btn fw-medium mt-3 fs-5" type="submit" value="{% translate 'Save changes' %}" style="background-color: #0DF9A3;">
+</form>
+<hr class="border opacity-100">
+<h3 class="my-2">{% translate 'Your subscriptions' %}</h3>
+<hr class="border opacity-100">
+{% if request.user.subscriptions %}
+<ul class="list-group w-25 mx-auto border border-black border-2">
+{% for cat in categories %}
+{% if cat.0 in request.user.subscriptions %}
+    <li class="list-group-item list-group-item-dark active fw-bold text-white fs-5 border-0" style="background-color: #D87738;">{{ cat.1 }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+{% else %}
+<h4>{% translate 'You are not subscribed to any category' %}</h4>
+{% endif %}
+<a href="{% url 'subscriptions' %}" class="btn fw-medium mt-3 fs-5" style="background-color: #0DF9A3;">{% translate 'Manage subscriptions' %}</a>
+<hr class="border opacity-100">
+{% endblock content %}

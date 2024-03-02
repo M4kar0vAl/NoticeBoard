@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{% translate 'Log out' %}
+{% endblock %}
+{% block content %}
+<h1 class="my-3">{% translate 'Are you sure you want to log out' %}</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn mt-3 fw-medium fs-5" type="submit" value="{% translate 'Log out' %}" style="background-color: #0DF9A3;">
+    </form>
+{% endblock %}

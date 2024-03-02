@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{% translate 'Your subscriptions' %}
+{% endblock %}
+
+{% block content %}
+<h1 class="my-3">{% translate 'Your subscriptions' %}</h1>
+<hr class="border opacity-100">
+<div class="w-50 mx-auto border border-black border-2">
+{% for cat in categories %}
+<div class="list-group list-group-horizontal justify-content-between">
+    <div class="list-group-item active w-50 fw-bold fs-4 text-white rounded-0 d-flex justify-content-start border-0" style="background-color: #D87738;">{{ cat.1 }}</div>
+    <div class="list-group-item active w-50 rounded-0 border-0" style="background-color: #D87738;">
+        <div class="row">
+            <form method="post">
+                {% csrf_token %}
+                    <input type="hidden" name="category" value="{{ cat.0 }}" />
+                {% if cat.0 in request.user.subscriptions %}
+                    <button class="col btn btn-success disabled">{% translate 'Subscribe' %}</button>
+                    <button class="col btn btn-danger" name="action" value="unsubscribe">{% translate 'Unsubscribe' %}</button>
+                {% else %}
+                    <button class="col btn btn-success" name="action" value="subscribe">{% translate 'Subscribe' %}</button>
+                    <button class="col btn btn-danger disabled">{% translate 'Unsubscribe' %}</button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+<hr class="border opacity-100">
+<form action="" method="post" class="list-group list-group-horizontal w-50 mx-auto mb-3">
+    {% csrf_token %}
+    <button class="list-group-item list-group-item-action list-group-item-success fw-bold fs-5" name="action" value="all">{% translate 'Subscribe to all' %}</button>
+    <button class="list-group-item list-group-item-action list-group-item-danger fw-bold fs-5" name="action" value="clear">{% translate 'Unsubscribe from all' %}</button>
+</form>
+{% endblock %}

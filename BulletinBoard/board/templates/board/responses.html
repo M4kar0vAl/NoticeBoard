@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{% translate 'Responses' %}
+{% endblock %}
+
+{% block content %}
+<hr class="border opacity-100">
+<h3 class="mt-3">{% translate 'Filters' %}</h3>
+<hr class="border opacity-100">
+<form class="mt-3" action="" method="get">
+    {% for f in filterset.form %}
+    {% if not forloop.last %}
+    <div class="text-bg-brown row justify-content-center">
+        <label for="{{ f.id_for_label }}" class="col-sm-2 my-auto col-form-label fw-bold text-end fs-5">
+            {{ f.label }}
+        </label>
+        <div class="col-sm-4 my-auto">
+            {{ f }}
+        </div>
+    </div>
+    {% else %}
+    <div class="text-bg-brown row justify-content-center">
+        <label for="{{ f.id_for_label }}" class="col-sm-2 my-auto col-form-label fw-bold text-end fs-5">
+            {{ f.label }}
+        </label>
+        <div class="col-sm-4 my-auto d-flex justify-content-start">
+            {{ f }}
+        </div>
+    </div>
+    {% endif %}
+    <div class="row fw-bold text-bg-dark fs-5">
+        <ul class="list-group list-group-flush pe-0 w-75 mx-auto">
+        {% for error in f.errors %}
+            <li class="list-group-item text-start text-danger text-bg-dark small border-0">{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+    <input class="btn fw-medium mt-3 fs-5" type="submit" value="{% translate 'Apply filters' %}" style="background-color: #0DF9A3;">
+    <a href="{% url 'response_list' %}" class="btn fw-medium mt-3 fs-5" style="background-color: #0DF9A3;">{% translate 'Clear filters' %}</a>
+</form>
+<hr class="border opacity-100">
+<h1>{% translate 'Responses to your advertisements' %}</h1>
+<hr class="border opacity-100">
+{% if responses %}
+{% for response in responses %}
+<div class="list-group w-50 mx-auto my-3 border border-dark border-2 fs-5" style="background-image: url(../static/img/paper.jpg); background-size: cover; background-position: bottom center">
+    <div class="list-group-item border-0 justify-content-between d-flex text-black" style="background-color: transparent">
+        <div class="fw-bold" style="background-color: transparent">{% translate 'Response to' context 'response to an ad' %}: <a href="{% url 'advert_detail' response.advert.pk %}" class="link-amberblack text-decoration-none">{{ response.advert.title }}</a></div>
+        <small class="fw-semibold">{{ response.created|date:'d M Y' }}</small>
+    </div>
+    <div class="list-group-item border-0 text-start fw-semibold text-black" style="background-color: transparent">От: {{ response.user }}</div>
+    <div class="list-group-item border-0 fw-semibold text-black" style="text-align:justify; background-color: transparent;">{{ response.text }}</div>
+    <div class="list-group-item border-0" style="background-color: transparent">
+        <form action="{% url 'response_handle' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="response_pk" value="{{ response.pk }}" />
+            {% if response.is_accepted %}
+            <button class="btn btn-success disabled fs-5">{% translate 'Accept' %}</button>
+            <button name="action" value="reject" class="btn btn-danger fs-5">{% translate 'Reject' %}</button>
+            {% else %}
+            <button name="action" value="accept" class="btn btn-success fs-5">{% translate 'Accept' %}</button>
+            <button name="action" value="reject" class="btn btn-danger fs-5">{% translate 'Reject' %}</button>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h4 class="my-3">{% translate 'There are no responses to your ads yet' %}</h4>
+{% endif %}
+{% if paginator.num_pages > 1 %}
+{% include 'board/includes/pagination.html' %}
+{% endif %}
+{% endblock %}
