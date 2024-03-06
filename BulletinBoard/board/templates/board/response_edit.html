@@ -3,15 +3,11 @@
 {% load i18n %}
 
 {% block title %}
-{% translate 'Advertisement editing' %}
+{% translate 'Response editing' %}
 {% endblock title %}
 
-{% block media %}
-{{ form.media }}
-{% endblock %}
-
 {% block content %}
-<h1 class="mt-3">{% translate 'Advertisement editing' %}</h1>
+<h1 class="mt-3">{% translate 'Response editing' %}</h1>
 <hr class="border borer-light borer-1 opacity-100 mt-3 mb-3">
 <form action="" method="post">
     {% csrf_token %}
@@ -32,4 +28,4 @@
     {% endfor %}
     <input class="btn my-3 fw-medium fs-5" type="submit" value="{% translate 'Save changes' %}" style="background-color: #0DF9A3;">
 </form>
-{% endblock %}
+{% endblock content %}

@@ -6897,9 +6897,9 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(10,10,10, var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-amberblack:hover, .link-amberblack:focus {
-  color: RGBA(72,6,7, var(--bs-link-opacity, 1)) !important;
-  -webkit-text-decoration-color: RGBA(72,6,7, var(--bs-link-underline-opacity, 1)) !important;
-  text-decoration-color: RGBA(72,6,7, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(128, 0, 0, var(--bs-link-opacity, 1)) !important;
+  -webkit-text-decoration-color: RGBA(128, 0, 0, var(--bs-link-underline-opacity, 1)) !important;
+  text-decoration-color: RGBA(128, 0, 0, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-green {

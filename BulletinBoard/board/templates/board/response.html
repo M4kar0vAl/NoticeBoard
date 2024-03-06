@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{{ response.text|truncatewords:5 }}
+{% endblock %}
+
+{% block content %}
+<div class="my-4 text-black w-75 mx-auto list-group" style="background-image: url(../static/img/paper.jpg); background-size: cover; background-position: center center;">
+    <h1 class="pt-3 list-group-item border-0 fw-bold" style="background-color: transparent;">{% translate 'Response to' context 'response to an ad' %}: <a href="{{ response.advert.get_absolute_url }}" class="link-amberblack text-decoration-none">{{ response.advert.title }}</a></h1>
+    <hr class="border border-black border-2 opacity-100 mb-2 mt-0 w-75 mx-auto">
+    <div class="d-flex justify-content-between fw-semibold fs-5 mx-4 list-group-item border-0" style="background-color: transparent">
+        <div>{% translate 'From' %}: {{ response.user }}</div>
+        <div>{{ response.created|date:'d M Y' }}</div>
+    </div>
+    <div class="fs-5 fw-semibold mx-5 list-group-item border-0" style="text-align: justify; background-color: transparent">{{ response.text|linebreaksbr }}</div>
+    <hr class="border border-black border-2 opacity-100 w-75 mx-auto mb-2">
+    {% if request.user == response.user or perms.board.delete_response or perms.board.change_response %}
+    <h2 class="fw-semibold text-amberblack border-0 mb-0" style="background-color: transparent">{% translate 'Actions' %}</h2>
+    <hr class="border border-black border-2 opacity-100 w-75 mx-auto mt-2 mb-2">
+    <div class="list-group list-group-horizontal d-flex justify-content-center">
+        {% if not response.is_accepted %}
+            {% if request.user == response.user or perms.board.change_response %}
+            <div class="list-group-item border-0" style="background-color: transparent;">
+                <a href="{% url 'response_edit' response.pk %}" class="link-orange text-decoration-none fs-3 fw-bold">{% translate 'Edit' %}</a>
+            </div>
+            {% endif %}
+        {% endif %}
+            {% if request.user == response.user or perms.board.delete_response %}
+                <div class="list-group-item border-0" style="background-color: transparent;">
+                    <a href="{% url 'response_delete' response.pk %}" class="link-maroon text-decoration-none fs-3 fw-bold">{% translate 'Delete' %}</a>
+                </div>
+            {% endif %}
+    </div>
+    {% endif %}
+    {% if request.user == response.advert.user %}
+    <div class="list-group-item border-0" style="background-color: transparent">
+        <form action="{% url 'response_handle' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="response_pk" value="{{ response.pk }}" />
+            {% if response.is_accepted %}
+            <button class="btn btn-success disabled fs-5">{% translate 'Accept' %}</button>
+            <button name="action" value="reject" class="btn btn-danger fs-5">{% translate 'Reject' %}</button>
+            {% else %}
+            <button name="action" value="accept" class="btn btn-success fs-5">{% translate 'Accept' %}</button>
+            <button name="action" value="reject" class="btn btn-danger fs-5">{% translate 'Reject' %}</button>
+            {% endif %}
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,10 +1,12 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from django.template.defaultfilters import truncatewords
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from tinymce.models import HTMLField
+
 
 class User(AbstractUser):
     subscriptions = ArrayField(models.CharField(max_length=2), size=10, default=list)
@@ -18,14 +20,20 @@ class Response(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name=_('Author'))
 
     def accept(self):
+        from .tasks import response_accepted_notify
         self.is_accepted = True
         self.save()
+        # send email to author of the response when response was accepted
+        response_accepted_notify(pk=self.pk)
 
     def reject(self):
         self.delete()
 
     def __str__(self):
-        return self.text
+        return truncatewords(self.text, 10)
+
+    def get_absolute_url(self):
+        return reverse('response_detail', args=[str(self.pk)])
 
 
 class Advert(models.Model):
@@ -62,4 +70,4 @@ class Advert(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('advert_detail', args=[str(self.id)])
+        return reverse('advert_detail', args=[str(self.pk)])

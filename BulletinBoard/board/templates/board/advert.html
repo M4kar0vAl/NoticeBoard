@@ -18,7 +18,7 @@
         {{ advert.created|date:'d M Y' }}
     </div>
 </div>
-<div style="text-align:justify" class="text-black mx-5 fw-semibold fs-5">{{ advert.text|safe}}</div>
+<div style="text-align:justify" class="text-black mx-5 fw-semibold fs-5 mt-3">{{ advert.text|safe}}</div>
 <div class="d-flex justify-content-between mx-4 text-amberblack fw-semibold fs-4">
     <div>{% translate 'Author' %}: {{ advert.user }}</div>
     <div>{% blocktranslate with count=advert.response_set.count %}Responses: {{ count }}{% endblocktranslate %}</div>

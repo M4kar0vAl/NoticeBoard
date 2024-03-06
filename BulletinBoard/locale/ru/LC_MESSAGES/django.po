@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-02 20:12+0300\n"
+"POT-Creation-Date: 2024-03-05 19:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "Фамилия"
 
 #: .\accounts\templates\account\login.html:6
 #: .\accounts\templates\account\login.html:9
-#: .\accounts\templates\account\login.html:39 .\templates\base.html:85
+#: .\accounts\templates\account\login.html:39 .\templates\base.html:86
 msgid "Log in"
 msgstr "Войти"
 
@@ -72,7 +72,7 @@ msgid "sign up"
 msgstr "зарегистрируйтесь"
 
 #: .\accounts\templates\account\logout.html:6
-#: .\accounts\templates\account\logout.html:12 .\templates\base.html:83
+#: .\accounts\templates\account\logout.html:12 .\templates\base.html:84
 msgid "Log out"
 msgstr "Выйти"
 
@@ -81,7 +81,7 @@ msgid "Are you sure you want to log out"
 msgstr "Вы действительно хотите выйти?"
 
 #: .\accounts\templates\account\signup.html:6
-#: .\accounts\templates\account\signup.html:9 .\templates\base.html:78
+#: .\accounts\templates\account\signup.html:9 .\templates\base.html:79
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -124,7 +124,8 @@ msgid "Your profile"
 msgstr "Ваш профиль"
 
 #: .\accounts\templates\accounts\profile.html:29
-#: .\board\templates\board\advert_edit.html:29
+#: .\board\templates\board\advert_edit.html:33
+#: .\board\templates\board\response_edit.html:29
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
@@ -147,7 +148,7 @@ msgid "Advert title contains"
 msgstr "Заголовок объявления содержит"
 
 #: .\board\filters.py:17 .\board\filters.py:44 .\board\forms.py:19
-#: .\board\models.py:57 .\board\templates\board\advert.html:15
+#: .\board\models.py:63 .\board\templates\board\advert.html:15
 #: .\board\templates\board\adverts.html:46
 msgid "Category"
 msgstr "Категория"
@@ -179,107 +180,111 @@ msgctxt "content of the response"
 msgid "Content"
 msgstr "Содержание"
 
-#: .\board\models.py:14 .\board\models.py:56
+#: .\board\models.py:15 .\board\models.py:62
 #, fuzzy
 #| msgctxt "content of the advertisement"
 #| msgid "Content"
 msgid "Content"
 msgstr "Содержание"
 
-#: .\board\models.py:15 .\board\models.py:59
+#: .\board\models.py:16 .\board\models.py:65
 #, fuzzy
 #| msgid "Published later than"
 msgid "Published at"
 msgstr "Опубликвано"
 
-#: .\board\models.py:16
+#: .\board\models.py:17
 #, fuzzy
 #| msgctxt "response is accepted"
 #| msgid "Accepted"
 msgid "Accepted"
 msgstr "Принято"
 
-#: .\board\models.py:17
+#: .\board\models.py:18
 msgid "Advertisement"
 msgstr "Объявление"
 
-#: .\board\models.py:18 .\board\models.py:58
+#: .\board\models.py:19 .\board\models.py:64
 #: .\board\templates\board\advert.html:23
-#: .\board\templates\board\adverts.html:56
+#: .\board\templates\board\adverts.html:55
 msgid "Author"
 msgstr "Автор"
 
-#: .\board\models.py:43
+#: .\board\models.py:49
 msgid "Choose Category"
 msgstr "Выберите категорию"
 
-#: .\board\models.py:44
+#: .\board\models.py:50
 msgid "Tanks"
 msgstr "Танки"
 
-#: .\board\models.py:45
+#: .\board\models.py:51
 msgid "Healers"
 msgstr "Хилы"
 
-#: .\board\models.py:46
+#: .\board\models.py:52
 msgid "Damage Dealers"
 msgstr "ДД"
 
-#: .\board\models.py:47
+#: .\board\models.py:53
 msgid "Merchants"
 msgstr "Торговцы"
 
-#: .\board\models.py:48
+#: .\board\models.py:54
 msgid "Guild Masters"
 msgstr "Гилдмастеры"
 
-#: .\board\models.py:49
+#: .\board\models.py:55
 msgid "Quest Givers"
 msgstr "Квестгиверы"
 
-#: .\board\models.py:50
+#: .\board\models.py:56
 msgid "Blacksmiths"
 msgstr "Кузнецы"
 
-#: .\board\models.py:51
+#: .\board\models.py:57
 msgid "Tanners"
 msgstr "Кожевники"
 
-#: .\board\models.py:52
+#: .\board\models.py:58
 msgid "Potion Makers"
 msgstr "Зельевары"
 
-#: .\board\models.py:53
+#: .\board\models.py:59
 msgid "Spell Masters"
 msgstr "Мастера заклинаний"
 
-#: .\board\models.py:55
+#: .\board\models.py:61
 msgid "Heading"
 msgstr "Заголовок"
 
 #: .\board\templates\board\advert.html:24
-#: .\board\templates\board\adverts.html:57
+#: .\board\templates\board\adverts.html:56
 #, python-format
 msgid "Responses: %(count)s"
 msgstr "Откликов: %(count)s"
 
 #: .\board\templates\board\advert.html:28
-#: .\board\templates\board\adverts.html:62
+#: .\board\templates\board\adverts.html:61
 msgid "Respond"
 msgstr "Откликнуться"
 
 #: .\board\templates\board\advert.html:32
+#: .\board\templates\board\response.html:20
 msgid "Actions"
 msgstr "Действия"
 
 #: .\board\templates\board\advert.html:36
-#: .\board\templates\board\adverts.html:70
+#: .\board\templates\board\adverts.html:69
+#: .\board\templates\board\responses.html:76
 msgid "Edit"
 msgstr "Редактировать"
 
 #: .\board\templates\board\advert.html:39
 #: .\board\templates\board\advert_delete.html:16
-#: .\board\templates\board\adverts.html:75
+#: .\board\templates\board\adverts.html:74
+#: .\board\templates\board\response_delete.html:16
+#: .\board\templates\board\responses.html:82
 msgid "Delete"
 msgstr "Удалить"
 
@@ -306,7 +311,8 @@ msgstr "Удалить объявление?"
 msgid "Are you sure you want to delete %(title)s?"
 msgstr "Вы действительно хотите удалить %(title)s?"
 
-#: .\board\templates\board\advert_edit.html:10
+#: .\board\templates\board\advert_edit.html:6
+#: .\board\templates\board\advert_edit.html:14
 msgid "Advertisement editing"
 msgstr "Редактирование объявления"
 
@@ -333,9 +339,34 @@ msgstr "Очистить фильтры"
 msgid "Advertisements list"
 msgstr "Список объявлений"
 
-#: .\board\templates\board\adverts.html:83
+#: .\board\templates\board\adverts.html:82
 msgid "No advertisements yet!"
 msgstr "Пока нет объявлений!"
+
+#: .\board\templates\board\response.html:11
+#: .\board\templates\board\responses.html:60
+msgctxt "response to an ad"
+msgid "Response to"
+msgstr "Отклик на"
+
+#: .\board\templates\board\response.html:14
+#: .\board\templates\board\responses.html:65
+msgid "From"
+msgstr "От"
+
+#: .\board\templates\board\response.html:33
+#: .\board\templates\board\response.html:36
+#: .\board\templates\board\responses.html:95
+#: .\board\templates\board\responses.html:98
+msgid "Accept"
+msgstr "Принять"
+
+#: .\board\templates\board\response.html:34
+#: .\board\templates\board\response.html:37
+#: .\board\templates\board\responses.html:96
+#: .\board\templates\board\responses.html:99
+msgid "Reject"
+msgstr "Отклонить"
 
 #: .\board\templates\board\response_create.html:6
 #: .\board\templates\board\response_create.html:10
@@ -347,32 +378,47 @@ msgctxt "respond to an ad"
 msgid "Respond"
 msgstr "Откликнуться"
 
+#: .\board\templates\board\response_delete.html:6
+#: .\board\templates\board\response_delete.html:10
+msgid "Delete response?"
+msgstr "Удалить отклик?"
+
+#: .\board\templates\board\response_delete.html:12
+msgid "Are you sure you want to delete response?"
+msgstr "Вы действительно хотите удалить отклик?"
+
+#: .\board\templates\board\response_edit.html:6
+#: .\board\templates\board\response_edit.html:10
+msgid "Response editing"
+msgstr "Редактирование отклика"
+
 #: .\board\templates\board\responses.html:6 .\templates\base.html:74
 msgid "Responses"
 msgstr "Отклики"
 
-#: .\board\templates\board\responses.html:46
+#: .\board\templates\board\responses.html:50
 msgid "Responses to your advertisements"
 msgstr "Отклики на ваши объявления"
 
-#: .\board\templates\board\responses.html:52
-msgctxt "response to an ad"
-msgid "Response to"
-msgstr "Отклик на"
+#: .\board\templates\board\responses.html:53
+msgid "Your responses"
+msgstr "Ваши отклики"
 
-#: .\board\templates\board\responses.html:62
-#: .\board\templates\board\responses.html:65
-msgid "Accept"
-msgstr "Принять"
-
-#: .\board\templates\board\responses.html:63
 #: .\board\templates\board\responses.html:66
-msgid "Reject"
-msgstr "Отклонить"
+msgid "View full"
+msgstr "Смотреть полностью"
 
-#: .\board\templates\board\responses.html:73
+#: .\board\templates\board\responses.html:109
 msgid "There are no responses to your ads yet"
 msgstr "На ваши объявления пока нет откликов"
+
+#: .\board\templates\board\responses.html:112
+msgid "You have not responded to any ads yet"
+msgstr "Вы еще не откликнулись ни на одно объявление"
+
+#: .\board\templates\board\responses.html:113
+msgid "Go to advertisements"
+msgstr "Перейти к объявлениям"
 
 #: .\board\templates\board\subscriptions.html:22
 #: .\board\templates\board\subscriptions.html:25
@@ -392,7 +438,7 @@ msgstr "Подписаться на все"
 msgid "Unsubscribe from all"
 msgstr "Отписаться от всех"
 
-#: .\board\views.py:106
+#: .\board\views.py:107
 msgid "You cannot respond to your own advertisements"
 msgstr "Вы не можете откликаться на собственные объявления"
 
@@ -417,10 +463,6 @@ msgstr "Применить"
 msgid "My adverts"
 msgstr "Мои объявления"
 
-#, python-format
-#~ msgid "Responses:%(count)s"
-#~ msgstr "Откликов: %(count)s"
-
-#~ msgctxt "action: to filter smth"
-#~ msgid "Filter"
-#~ msgstr "Применить фильтры"
+#: .\templates\base.html:75
+msgid "My responses"
+msgstr "Мои отклики"

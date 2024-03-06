@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% load i18n %}
-{% load custom_tags %}
 
 {% block title %}
 {% translate 'Advertisements' %}
@@ -11,6 +10,7 @@
 <hr class="border opacity-100">
 <h3 class="">{% translate 'Filters' %}</h3>
 <hr class="border opacity-100">
+<!-- Filtration -->
 <form class="my-3" action="" method="get">
     {% for f in filterset.form %}
     <div class="text-bg-brown row justify-content-center">
@@ -37,51 +37,52 @@
 <hr class="border opacity-100">
 {% if adverts %}
 {% for advert in adverts %}
+<!-- Advert object -->
 <div class="list-group border border-black border-2 d-flex mx-auto w-50 mb-2" style="background-image: url(../static/img/paper.jpg); background-size: 100% 100%;">
-        <div class="list-group-item border-0 justify-content-center d-flex pt-3 pb-2" style="background-color: transparent">
-            <h1 class="mb-0"><a class="link-amberblack text-decoration-none fw-bold" href="{{ advert.get_absolute_url }}">{{ advert.title }}</a></h1>
+    <div class="list-group-item border-0 justify-content-center d-flex pt-3 pb-2" style="background-color: transparent">
+        <h1 class="mb-0"><a class="link-amberblack text-decoration-none fw-bold" href="{{ advert.get_absolute_url }}">{{ advert.title }}</a></h1>
+    </div>
+    <hr class="border border-black border-2 opacity-100 mx-auto w-75 mt-1 mb-2">
+    <div class="list-group-item d-flex justify-content-between border-0 mx-4 fw-semibold fs-5" style="background-color: transparent">
+        <div class="text-amberblack border-0">{% translate 'Category' %}: {{ advert.get_category_display }}</div>
+        <div class="d-flex border-0 fst-italic text-amberblack">
+            {{ advert.created|date:'d M Y' }}
         </div>
-        <hr class="border border-black border-2 opacity-100 mx-auto w-75 mt-1 mb-2">
-        <div class="list-group-item d-flex justify-content-between border-0 mx-4 fw-semibold fs-5" style="background-color: transparent">
-            <div class="text-amberblack border-0">{% translate 'Category' %}: {{ advert.get_category_display }}</div>
-            <div class="d-flex border-0 fst-italic text-amberblack">
-                {{ advert.created|date:'d M Y' }}
-            </div>
-        </div>
-
-        <div class="list-group-item border-0 mx-5 text-black fw-semibold fs-5" style="background-color: transparent; text-align:justify">
-            <p class="mb-0">{{ advert.text|safe|truncatewords:50}}</p>
-        </div>
-        <div class="list-group-item border-0 d-flex justify-content-between mx-4 fw-semibold fs-5" style="background-color: transparent">
-            <div class=" text-amberblack">{% translate 'Author' %}: {{ advert.user }}</div>
-            <div class=" text-amberblack">{% blocktranslate with count=advert.response_set.count %}Responses: {{ count }}{% endblocktranslate %}</div>
-        </div>
-        {% if advert.user != request.user %}
-        <div class="list-group-item border-0 pt-0" style="background-color: transparent">
-            <hr class="border border-black border-2 opacity-100 mx-auto w-75 mt-2 mb-3">
-            <a href="{% url 'response_create' %}?advert_pk={{ advert.pk }}" class="btn fw-bold mb-1 fs-5" style="background-color: #0DF9A3;">{% translate 'Respond' %}</a>
+    </div>
+    <div class="list-group-item border-0 mx-5 text-black fw-semibold fs-5" style="background-color: transparent; text-align:justify">
+        <p class="mb-0">{{ advert.text|safe|truncatewords:50}}</p>
+    </div>
+    <div class="list-group-item border-0 d-flex justify-content-between mx-4 fw-semibold fs-5" style="background-color: transparent">
+        <div class=" text-amberblack">{% translate 'Author' %}: {{ advert.user }}</div>
+        <div class=" text-amberblack">{% blocktranslate with count=advert.response_set.count %}Responses: {{ count }}{% endblocktranslate %}</div>
+    </div>
+    {% if advert.user != request.user %}
+    <div class="list-group-item border-0 pt-0" style="background-color: transparent">
+        <hr class="border border-black border-2 opacity-100 mx-auto w-75 mt-2 mb-3">
+        <a href="{% url 'response_create' %}?advert_pk={{ advert.pk }}" class="btn fw-bold mb-1 fs-5" style="background-color: #0DF9A3;">{% translate 'Respond' %}</a>
+    </div>
+    {% endif %}
+    {% if perms.board.change_advert or perms.board.delete_advert or advert.user == request.user %}
+    <hr class="border border-black border-2 opacity-100 mx-auto w-75 my-2">
+    <div class="list-group-item list-group list-group-flush list-group-horizontal d-flex justify-content-center border-0 pt-0" style="background-color: transparent">
+        {% if perms.board.change_advert or advert.user == request.user %}
+        <div class="list-group-item d-flex justify-content-center border-0" style="background-color: transparent">
+            <a class="link-orange text-decoration-none fw-bold fs-4" href="{% url 'advert_edit' advert.pk %}">{% translate 'Edit' %}</a>
         </div>
         {% endif %}
-        {% if perms.board.change_advert or perms.board.delete_advert or advert.user == request.user %}
-        <hr class="border border-black border-2 opacity-100 mx-auto w-75 my-2">
-        <div class="list-group-item list-group list-group-flush list-group-horizontal d-flex justify-content-center border-0 pt-0" style="background-color: transparent">
-            {% if perms.board.change_advert or advert.user == request.user %}
-            <div class="list-group-item d-flex justify-content-center border-0" style="background-color: transparent">
-                <a class="link-orange text-decoration-none fw-bold fs-4" href="{% url 'advert_edit' advert.pk %}">{% translate 'Edit' %}</a>
-            </div>
-            {% endif %}
-            {% if perms.board.delete_advert or advert.user == request.user %}
-            <div class="list-group-item d-flex justify-content-center border-0" style="background-color: transparent">
-                <a class="link-maroon text-decoration-none fw-bold fs-4" href="{% url 'advert_delete' advert.pk %}">{% translate 'Delete' %}</a>
-            </div>
-            {% endif %}
+        {% if perms.board.delete_advert or advert.user == request.user %}
+        <div class="list-group-item d-flex justify-content-center border-0" style="background-color: transparent">
+            <a class="link-maroon text-decoration-none fw-bold fs-4" href="{% url 'advert_delete' advert.pk %}">{% translate 'Delete' %}</a>
         </div>
         {% endif %}
     </div>
+    {% endif %}
+</div>
 {% endfor %}
 {% else %}
 <h4>{% translate 'No advertisements yet!' %}</h4>
 {% endif %}
+<!-- Pagination -->
 {% if paginator.num_pages > 1 %}
 {% include 'board/includes/pagination.html' %}
 {% endif %}
